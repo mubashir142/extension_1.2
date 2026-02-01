@@ -53,7 +53,7 @@
       "properties": {
         "devskill.auth.firebaseApiKey": {
           "type": "string",
-          "default": "AIzaSyBoJ6aJmeH-lhk0fOXh9lhsPy0EvOs1lfU",
+          "default": "",
           "description": "Firebase API Key for authentication"
         },
         "devskill.auth.firebaseAuthDomain": {
