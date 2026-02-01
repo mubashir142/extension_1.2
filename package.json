@@ -1,0 +1,119 @@
+{
+  "name": "devskill-tracker",
+  "displayName": "devskill-tracker",
+  "description": "Tracks real-time coding activity for DevSkill Tracker",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.106.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "devskill-tracker.signIn",
+        "title": "DevSkill: Sign In"
+      },
+      {
+        "command": "devskill-tracker.signOut",
+        "title": "DevSkill: Sign Out"
+      },
+      {
+        "command": "devskill-tracker.showAuthStatus",
+        "title": "DevSkill: Show Auth Status"
+      },
+      {
+        "command": "devskill-tracker.startTracking",
+        "title": "DevSkill: Start Tracking"
+      },
+      {
+        "command": "devskill-tracker.stopTracking",
+        "title": "DevSkill: Stop Tracking"
+      },
+      {
+        "command": "devskill-tracker.showData",
+        "title": "DevSkill: Show Collected Data"
+      },
+      {
+        "command": "devskill-tracker.clearData",
+        "title": "DevSkill: Clear All Data"
+      },
+      {
+        "command": "devskill-tracker.analyzeFile",
+        "title": "DevSkill: Analyze Current File"
+      }
+    ],
+    "configuration": {
+      "title": "DevSkill Tracker",
+      "properties": {
+        "devskill.auth.firebaseApiKey": {
+          "type": "string",
+          "default": "AIzaSyBoJ6aJmeH-lhk0fOXh9lhsPy0EvOs1lfU",
+          "description": "Firebase API Key for authentication"
+        },
+        "devskill.auth.firebaseAuthDomain": {
+          "type": "string",
+          "default": "divskill-tracker.firebaseapp.com",
+          "description": "Firebase Auth Domain"
+        },
+        "devskill.auth.firebaseProjectId": {
+          "type": "string",
+          "default": "divskill-tracker",
+          "description": "Firebase Project ID"
+        },
+        "devskill.auth.enableAutoLogin": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically sign in on startup if credentials are stored"
+        },
+        "devskill.tracking.idleThreshold": {
+          "type": "number",
+          "default": 60000,
+          "description": "Idle threshold in milliseconds (default: 60000 = 1 minute)"
+        },
+        "devskill.tracking.pasteDetectionThreshold": {
+          "type": "number",
+          "default": 50,
+          "description": "Minimum characters to trigger paste detection (default: 50)"
+        },
+        "devskill.api.baseUrl": {
+          "type": "string",
+          "default": "http://localhost:8000",
+          "description": "Backend API base URL (default: http://localhost:8000)"
+        },
+        "devskill.api.enableAutoUpload": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically send analysis data to backend"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.106.1",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3"
+  },
+  "dependencies": {
+    "firebase": "^12.8.0",
+    "uuid": "^13.0.0"
+  }
+}
